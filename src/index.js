@@ -7,7 +7,7 @@ export default function (babel) {
             Program: {
                 enter(path, { opts }) {
                     const { source, findName, replaceName } = opts;
-                    console.log({ opts })
+
                     if (!source || !findName || !replaceName) {
                         throw new Error(
                             'Error: babel-plugin-rename-imports - missing options',
