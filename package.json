@@ -1,0 +1,19 @@
+{
+  "name": "babel-plugin-rename-imports",
+  "version": "1.0.0",
+  "description": "Find and replace import statements in your code but moar smarter",
+  "repository": "https://github.com/jcreamer898/babel-plugin-rename-imports",
+  "license": "UNLICENSED",
+  "author": "Jonathan Creamer",
+  "main": "src/index.js",
+  "type": "module",
+  "dependencies": {
+    "babel-plugin-tester": "^11.0.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
+  }
+}

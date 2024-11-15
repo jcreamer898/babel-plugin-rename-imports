@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rename-imports 1. rename-imports: 1. rename-imports 1`] = `
+
+import {join} from '@foo/path-utils';
+join('a','b');
+notJoin();
+
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { joinPath } from "@foo/path-utils";
+joinPath("a", "b");
+notJoin();
+
+`;
+
+exports[`rename-imports 2. rename-imports: 2. rename-imports 1`] = `
+
+import {join as joinPath} from '@foo/path-utils';
+joinPath('a','b');
+
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { joinPath } from "@foo/path-utils";
+joinPath("a", "b");
+
+`;
+
+exports[`rename-imports 3. rename-imports: 3. rename-imports 1`] = `
+
+import * as pathUtils from '@foo/path-utils';
+pathUtils.join('a','b');
+pathUtils.notJoin();
+
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import * as pathUtils from "@foo/path-utils";
+pathUtils.joinPath("a", "b");
+pathUtils.notJoin();
+
+`;
+
+exports[`rename-imports 4. rename-imports: 4. rename-imports 1`] = `
+
+import {join as pathJoiner} from '@foo/path-utils';
+pathJoiner('a','b');
+
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { joinPath } from "@foo/path-utils";
+joinPath("a", "b");
+
+`;
+
+exports[`rename-imports 5. rename-imports: 5. rename-imports 1`] = `
+
+import {join} from 'not-path-utils';
+join('a','b');
+
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { join } from "not-path-utils";
+join("a", "b");
+
+`;
+
+exports[`rename-imports 6. codemod-should be configurable: 6. codemod-should be configurable 1`] = `
+
+import {foo} from 'baz';
+    foo('thing', true, 1234);
+    
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { bar } from "baz";
+bar("thing", true, 1234);
+
+`;
